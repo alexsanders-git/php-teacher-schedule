@@ -1,5 +1,5 @@
 <h2 class="mb-2 text-center">Create schedule:</h2>
-<form class="mb-5">
+<form action="actions/create-subject.php" method="post" class="mb-5">
     <div class="mb-3">
         <label for="day" class="form-label">Day of the week:</label>
         <select id="day" class="form-select" name="day" aria-label="Day of the week">
