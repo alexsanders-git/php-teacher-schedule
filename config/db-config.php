@@ -1,8 +1,5 @@
 <?php
 
-require_once __DIR__ . '../functions.php';
-require_once __DIR__ . '/classes/Db.php';
-
 $db_config = [
 	'host' => 'localhost',
 	'dbname' => 'php.local',
@@ -15,8 +12,4 @@ $db_config = [
 	],
 ];
 
-$db = new Db( $db_config );
-
-$teachers = $db->query( "SELECT * FROM teachers" )->fetchAll();
-
-dd( $teachers );
+return $db_config;
