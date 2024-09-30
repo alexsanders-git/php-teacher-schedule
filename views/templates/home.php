@@ -10,7 +10,7 @@
 					?>
 
 					<?php
-					if ( isset( $teacher_schedule ) && !empty( $teacher_schedule ) ) {
+					if ( isset( $schedule ) && !empty( $schedule ) ) {
 						require_once ROOT . '/views/partials/table-schedule.php';
 					}
 					?>

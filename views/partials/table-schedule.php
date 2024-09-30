@@ -9,12 +9,12 @@
     </tr>
     </thead>
     <tbody>
-		<?php foreach ( $teacher_schedule as $index => $item ) : ?>
-        <tr data-id="<?= $item[ 'id' ]; ?>">
+		<?php foreach ( $schedule_arr as $index => $item ) : ?>
+        <tr>
             <th scope="row"><?= $index + 1; ?></th>
             <td><?= $item[ 'day' ]; ?></td>
             <td><?= $item[ 'subject' ]; ?></td>
-            <td><?= $item[ 'first_name' ] . ' ' . $item[ 'last_name' ]; ?></td>
+            <td><?= isset( $item[ 'teacher' ] ) ? $item[ 'teacher' ] : ''; ?></td>
         </tr>
 		<?php endforeach; ?>
     </tbody>

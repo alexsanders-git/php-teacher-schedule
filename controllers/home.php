@@ -2,12 +2,24 @@
 
 $teachers = $db->query( "SELECT * FROM teachers" )->findAll();
 $schedule = $db->query( "SELECT * FROM schedule" )->findAll();
-$teacher_schedule = $db->query( "
-    SELECT ts.id, t.first_name, t.last_name, s.day, s.subject
-    FROM teacher_schedule ts
-    JOIN teachers t ON ts.teacher_id = t.id
-    JOIN schedule s ON ts.schedule_id = s.id
-" )->findAll();
+
+$schedule_arr = [];
+
+foreach ( $schedule as $item ) {
+	$schedule_item = [];
+	$schedule_item[ 'day' ] = $item[ 'day' ];
+	$schedule_item[ 'subject' ] = $item[ 'subject' ];
+
+	$teacher_schedule = $db->query( "SELECT * FROM teacher_schedule WHERE `schedule_id` = ?", [ $item[ 'id' ] ] )->find();
+
+	if ( $teacher_schedule ) {
+		$teacher = $db->query( "SELECT * FROM teachers WHERE `id` = ?", [ $teacher_schedule[ 'teacher_id' ] ] )->find();
+
+		$schedule_item[ 'teacher' ] = $teacher[ 'first_name' ] . ' ' . $teacher[ 'last_name' ];
+	}
+
+	$schedule_arr[] = $schedule_item;
+}
 
 if ( $_SERVER[ 'REQUEST_METHOD' ] == 'POST' ) {
 	if ( isset( $_POST[ 'day' ] ) ) {
