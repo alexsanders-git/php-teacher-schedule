@@ -9,7 +9,11 @@
 					}
 					?>
 
-					<?php require_once ROOT . '/views/partials/table-schedule.php'; ?>
+					<?php
+					if ( isset( $teacher_schedule ) && !empty( $teacher_schedule ) ) {
+						require_once ROOT . '/views/partials/table-schedule.php';
+					}
+					?>
         </div>
     </div>
 </div>

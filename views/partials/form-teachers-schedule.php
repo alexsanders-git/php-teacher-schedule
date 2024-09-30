@@ -6,7 +6,7 @@
             <option value selected disabled>Select the teacher</option>
 					<?php foreach ( $teachers as $teacher ) : ?>
               <option value="<?= $teacher[ 'id' ] ?>>">
-								<?= $teacher[ 'first_name' ] . ' ' . $teacher[ 'last_name' ] ?>
+								<?= $teacher[ 'first_name' ] . ' ' . $teacher[ 'last_name' ]; ?>
               </option>
 					<?php endforeach; ?>
         </select>
@@ -15,11 +15,11 @@
         <label for="subject" class="form-label">Subject:</label>
         <select id="subject" class="form-select" name="subject" aria-label="School subjects">
             <option value selected disabled>Select the subject</option>
-            <option value="Math">Math</option>
-            <option value="English">English</option>
-            <option value="Science">Science</option>
-            <option value="History">History</option>
-            <option value="Physical Education">Physical Education</option>
+					<?php foreach ( $schedule as $item ) : ?>
+              <option value="<?= $item[ 'id' ] ?>>">
+								<?= $item[ 'subject' ]; ?>
+              </option>
+					<?php endforeach; ?>
         </select>
     </div>
     <button type="submit" class="btn btn-primary">Save</button>

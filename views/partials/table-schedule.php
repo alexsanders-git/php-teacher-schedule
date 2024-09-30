@@ -9,25 +9,13 @@
     </tr>
     </thead>
     <tbody>
-    <tr>
-        <th scope="row">1</th>
-        <td>Monday</td>
-        <td>English</td>
-        <td>Daniel Wilson</td>
-    </tr>
-
-    <tr>
-        <th scope="row">2</th>
-        <td>Tuesday</td>
-        <td>History</td>
-        <td>Sophia Garcia</td>
-    </tr>
-
-    <tr>
-        <th scope="row">3</th>
-        <td>Wednesday</td>
-        <td>Science</td>
-        <td>Chloe Rodriguez</td>
-    </tr>
+		<?php foreach ( $teacher_schedule as $index => $item ) : ?>
+        <tr data-id="<?= $item[ 'id' ]; ?>">
+            <th scope="row"><?= $index + 1; ?></th>
+            <td><?= $item[ 'day' ]; ?></td>
+            <td><?= $item[ 'subject' ]; ?></td>
+            <td><?= $item[ 'first_name' ] . ' ' . $item[ 'last_name' ]; ?></td>
+        </tr>
+		<?php endforeach; ?>
     </tbody>
 </table>

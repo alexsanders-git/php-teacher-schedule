@@ -37,7 +37,8 @@ class Db {
 			$this->stmt = $this->connection->prepare( $query );
 			$this->stmt->execute( $params );
 		} catch ( PDOException $e ) {
-			return false;
+			// TODO: Show nice error
+			echo "Error: " . $e->getMessage();
 		}
 		return $this;
 	}
