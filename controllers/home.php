@@ -59,4 +59,4 @@ if ( $_SERVER[ 'REQUEST_METHOD' ] == 'POST' ) {
 }
 
 // Show UI
-require_once 'views/layouts/base.php';
+require_once 'views/page/base.php';
