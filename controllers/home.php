@@ -39,6 +39,8 @@ if ( $_SERVER[ 'REQUEST_METHOD' ] == 'POST' ) {
 		$db->query( "INSERT INTO teacher_schedule  (`teacher_id`, `schedule_id`) VALUES (?, ?)", [
 			intval( $_POST[ 'teacher' ] ), intval( $_POST[ 'subject' ] )
 		] );
+		header( "Location: /" );
+		exit;
 	} else {
 		abort( 400 );
 	}

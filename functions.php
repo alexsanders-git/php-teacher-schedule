@@ -13,7 +13,7 @@ function dd( $data ) {
 
 function abort( $code = 404 ) {
 	http_response_code( $code );
-	require ROOT . "/views/templates/{$code}.php";
+	require ROOT . "/views/layouts/{$code}.php";
 	die;
 }
 
